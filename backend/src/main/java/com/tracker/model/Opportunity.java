@@ -19,12 +19,17 @@ public class Opportunity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler",
-            "opportunities", "googleRefreshToken", "providerId"})
-    private User user;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "user_id", nullable = false)
+//    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler",
+//            "opportunities", "googleRefreshToken", "providerId"})
+//    private User user;
+@ManyToOne(fetch = FetchType.EAGER)  // ← change LAZY to EAGER
+@JoinColumn(name = "user_id", nullable = false)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler",
+        "opportunities", "googleRefreshToken", "providerId"})
+private User user;
 
     @Column(nullable = false, length = 200)
     private String title;

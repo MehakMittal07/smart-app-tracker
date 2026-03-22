@@ -23,10 +23,10 @@ public class User {
     @Column(name = "image_url", length = 512)
     private String imageUrl;
 
-    @JsonIgnore
-    @Column(name = "google_refresh_token", length = 512)
-    private String googleRefreshToken;
 
+@JsonIgnore
+@Column(name = "google_refresh_token", length = 512)
+private String googleRefreshToken;
     @Column(name = "provider_id")
     private String providerId;
 
