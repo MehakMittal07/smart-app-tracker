@@ -1,7 +1,11 @@
 export default function Login() {
+  // const handleLogin = () => {
+  //   window.location.href = "http://localhost:8085/oauth2/authorization/google";
+  // };
   const handleLogin = () => {
-    window.location.href = "http://localhost:8085/oauth2/authorization/google";
-  };
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8085";
+  window.location.href = `${apiUrl}/oauth2/authorization/google`;
+};
 
   const params = new URLSearchParams(window.location.search);
   const error  = params.get("error");
